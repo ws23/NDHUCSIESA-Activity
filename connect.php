@@ -3,7 +3,7 @@
 	$HOST = "localhost"; 
 	$ID = ""; // database user account
 	$PW = ""; // database user password
-	$DB = "csiesa"; // database name
+	$DB = ""; // database name
 	
 	mysql_connect($HOST, $ID, $PW)
 		or die("Error connecting to MySQL: ". mysql_error());
