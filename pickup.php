@@ -43,7 +43,18 @@ if(isset($_POST['picked'])){
 	                $num = $ID[5] . $ID[6] . $ID[7];
 		}
 ?>
-<p class="pick"><?php echo $grade . $year . $dept . $num . "<br>\n" . $Name;?></p>
+<p class="pick">
+<?php 
+sleep(1);
+echo $grade;
+sleep(1);
+echo $year;
+sleep(1);
+echo $dept;
+sleep(1);
+echo $num . "<br>\n" . $Name;
+?>
+</p>
 
 <?php }
 } ?>
