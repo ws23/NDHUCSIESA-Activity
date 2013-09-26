@@ -49,6 +49,7 @@ if(isset($_POST['picked'])){
 	while($i<=8){
 		echo $ID[$i];
 		sleep(1);
+		$i++;
 	}
 
 ?>
