@@ -31,9 +31,9 @@ if(isset($_POST['picked'])){
 		
 		mysql_query("UPDATE `{$TName[0]}` SET `pickUp` = true WHERE `ID` = {$lucky};");		
 
-	        $grade = $ID[0];
-	        $year = $ID[1] . $ID[2];
-        	if($year[0] == "1"){
+	       // $grade = $ID[0];
+	        //$year = $ID[1] . $ID[2];
+        /*	if($year[0] == "1"){
                 	$year = $year . $ID[3];
 	                $dept = $ID[4] . $ID[5];
         	        $num = $ID[6] . $ID[7] . $ID[8];
@@ -41,18 +41,16 @@ if(isset($_POST['picked'])){
         	else{
                 	$dept = $ID[3] . $ID[4];
 	                $num = $ID[5] . $ID[6] . $ID[7];
-		}
+		}*/
 ?>
 <p class="pick">
 <?php 
-sleep(1);
-echo $grade;
-sleep(1);
-echo $year;
-sleep(1);
-echo $dept;
-sleep(1);
-echo $num . "<br>\n" . $Name;
+	$i = 0;
+	while($i<=8){
+		echo $ID[$i];
+		sleep(1);
+	}
+
 ?>
 </p>
 
