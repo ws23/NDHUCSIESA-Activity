@@ -1,5 +1,4 @@
 </td></tr></table>
-<hr></hr>
 <p class="footer" align="center">
 CC-BY-SA </br>
 東華資工系學會16級 網管 林育慈</br>

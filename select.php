@@ -7,13 +7,13 @@ require("header.php");
 <select size="1" name="activity" style="font-size: 24pt; width: 300px; height: 50px; align: center;">
 <?php
 $result = mysql_query("SELECT * from `main` WHERE 1;");
-while($row = mysql_fetch_row($result)){
-	echo '<option value="' . $row[0] . '"';
+while($row = mysql_fetch_array($result)){
+	echo '<option value="' . $row['AID'] . '"';
 	if(isset($_POST['activity'])){ 
-		if($_POST['activity'] == $row[0])	
+		if($_POST['activity'] == $row['AID'])	
 			echo ' selected ';
 	}
-	echo '>' . $row[1] . '</option>' . "\n";
+	echo '>' . $row['AName'] . '</option>' . "\n";
 }
 ?>
 </select>

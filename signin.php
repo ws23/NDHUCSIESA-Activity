@@ -9,9 +9,9 @@ require("header.php");
 if(isset($_POST['activity'])){
 	$ID = $_POST['activity'];
 	$result = mysql_query("SELECT * from `main` WHERE `AID` = '{$ID}';");
-	$row = mysql_fetch_row($result);
-	$AName = $row[1];
-	$TName = $row[2];
+	$row = mysql_fetch_array($result);
+	$AName = $row['AName'];
+	$TName = $row['TName'];
 
 ?>
 
@@ -32,11 +32,17 @@ if(isset($_POST['activity'])){
 		}
 		else{
 			$stuID = $_POST['stuID'];
-			$result = mysql_query("SELECT * from `tbl_name` where `stuID` = '{$stuID}';");
-			$row = mysql_fetch_row($result);
-			if($row[1] == $stuID){
-				$stuName = $row[2];
-				$command = "INSERT INTO `{$TName}`(`stuID`, `stuName`, `signIn`, `money`, `checkIn`, `pickUp`) VALUES ('{$stuID}','{$stuName}',true,false,false,false);";
+			$result = mysql_query("SELECT * from `stuinfo` where `stuID` = '{$stuID}';");
+			$row = mysql_fetch_array($result);
+			$result = mysql_query("SELECT * from `main` WHERE `TName` = '{$TName}';");
+			$AInfo = mysql_fetch_array($result);
+			if($row['stuID'] == $stuID){
+				$stuName = $row['stuName'];
+				if($row['isMember']==true)
+					$charge = $AInfo['chargeMember'];
+				else
+					$charge = $AInfo['charge'];
+				$command = "INSERT INTO `{$TName}`(`stuID`, `stuName`, `signIn`, `money`, `charge`, `checkIn`, `pickUp`) VALUES ('{$stuID}','{$stuName}', true, false, {$charge}, false,false);";
 				mysql_query($command)
 					or die ("<br>Error: " . mysql_error() . "<br>Command: " . $command);
 				echo "<br>" . "Thank you, " . $stuName ;

@@ -1,9 +1,9 @@
 <?php 
 	
-	$HOST = "localhost"; 
-	$ID = ""; // database user account
-	$PW = ""; // database user password
-	$DB = ""; // database name
+	$HOST = "localhost";
+	$ID = "csie-sa";
+	$PW = "csiesa";
+	$DB = "activity";
 	
 	mysql_connect($HOST, $ID, $PW)
 		or die("Error connecting to MySQL: ". mysql_error());
