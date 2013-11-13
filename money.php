@@ -62,4 +62,3 @@ if(isset($_POST['stuID'])){
 
 
 require("footer.php"); ?>
-
