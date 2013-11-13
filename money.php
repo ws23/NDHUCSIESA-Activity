@@ -4,7 +4,7 @@ require("header.php");
 
 <?php
 
-if(isset($_POST['activity'])){
+/*if(isset($_POST['activity'])){
 
         echo '
         <form method="post" name="check">
@@ -14,7 +14,7 @@ if(isset($_POST['activity'])){
                 <input type="submit" value="繳費">
         <form>
         ';
-}
+}*/
 if(isset($_POST['stuID'])){
         $result = mysql_query("SELECT `TName` FROM `main` WHERE `AID` = '{$_POST['activity']}';");
         $row = mysql_fetch_array($result);
