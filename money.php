@@ -28,6 +28,7 @@ if(isset($_POST['stuID'])){
                 echo "<br>已繳費。</br>";
         else{
                 mysql_query("UPDATE `{$row['TName']}` SET `money` = true WHERE `stuID` = '{$_POST['stuID']}';");
+		LogBook("{$row['TName']}: {$_POST['stuID']} pay the money.");
 		echo "<br>" . $row2['stuName'] . "繳費成功。</br>";
 	}
 }
@@ -51,9 +52,9 @@ if(isset($_POST['stuID'])){
 		</form>
 		';
                 echo "<td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
-                echo $row['money']?"已繳費":"未繳費";
+                echo $row['money']?"已繳費":"<font-color=\"red\">未繳費</font>";
                 echo "</td><td>";
-                echo $row['checkIn']?"已報到":"未報到";
+                echo $row['checkIn']?"已報到":"<font-color=\"red\">未報到</font>";
                 echo "</td><td>";
                 echo $row['pickUp']?"有中獎":"沒中獎";
                 echo "</td></tr>";

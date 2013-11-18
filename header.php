@@ -12,7 +12,8 @@
 <p align="center"><img src="img/logo.png"></p>
 <!--<a href="index.php"><h1 align="center" style="font-size: 48pt; font-family: 微軟正黑體;">東華資工系學會活動系統</h1></a>-->
 <?php
-require("connect.php");
+require_once("connect.php");
+require_once('log.php');
 if(isset($_POST['activity'])){
 	$ID = $_POST['activity'];
 	$result = mysql_query("SELECT * FROM `main` WHERE `AID` = '{$ID}';");

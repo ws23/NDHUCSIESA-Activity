@@ -18,6 +18,7 @@ if(isset($_POST['picked'])){
 
 	if($unpick[0] == 0){
 		echo '<p class="pick">所有人都中獎了！</br>恭喜！</p>';
+		LogBook("{$TName['TName']}: all pick!");
 	}
 	else{
 		do{
@@ -30,7 +31,7 @@ if(isset($_POST['picked'])){
         	$ID = (string)$row['stuID'];
 
 		mysql_query("UPDATE `{$TName['TName']}` SET `pickUp` = true WHERE `ID` = {$lucky};");		
-
+		LogBook("{$TName}: pick {$ID}(${Name}) ");
 	        $grade = $ID[0];
 	        $year = $ID[1] . $ID[2];
         	if($year[0] == "1"){

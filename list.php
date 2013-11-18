@@ -9,9 +9,9 @@ require("header.php");
 	$result = mysql_query("SELECT * FROM `{$TName[0]}` ORDER BY `stuID`;");
 	while($row = mysql_fetch_array($result)){
 		echo "<tr align=\"center\"><td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
-		echo $row['money']?"已繳費":"未繳費";
+		echo $row['money']?"已繳費":"<font-color=\"red\">未繳費</font>";
 		echo "</td><td>";
-		echo $row['checkIn']?"已報到":"未報到";
+		echo $row['checkIn']?"已報到":"<fonr-color=\"red\">未報到</font>";
 		echo "</td><td>";
 		echo $row['pickUp']?"有中獎":"沒中獎";
 		echo "</td></tr>";

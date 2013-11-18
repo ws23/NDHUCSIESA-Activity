@@ -41,6 +41,7 @@ if(isset($_POST['AName'])){
 	$TName = "tmp";
 	$command = "INSERT INTO `main`(`AName`, `TName`, `Money`, `charge`, `chargeMember`) VALUES ('{$AName}','{$TName}',{$money}, '{$charge}', '{$chargeM}');";
 	mysql_query($command) or die(mysql_error());
+	LogBook("Create {$TName}(DB:{$AName})");
 	$result = mysql_query("SELECT `AID` FROM `main` WHERE `AName` = '{$AName}';");
 	$row = mysql_fetch_array($result) or die(mysql_error());
 	$TName = "game_" . $row['AID'];

@@ -1,6 +1,6 @@
 <?php 
 	
-	$HOST = "localhost";
+	$HOST = "127.0.0.1";
 	$ID = "";
 	$PW = "";
 	$DB = "activity";
