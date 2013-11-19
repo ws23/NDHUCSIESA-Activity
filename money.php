@@ -42,7 +42,7 @@ if(isset($_POST['stuID'])){
         $result = mysql_query("SELECT * FROM `{$TName['TName']}` ORDER BY `stuID`;");
         while($row = mysql_fetch_array($result)){
 		if($row['charge']==0){
-			mysql_query("UPDATE `{$TName['TName']}` SET `money` = true;");
+			mysql_query("UPDATE `{$TName['TName']}` SET `money` = true WHERE `stuID` = {$row['stuID']};");
 			continue;
 		}
 		if($row['money'])
