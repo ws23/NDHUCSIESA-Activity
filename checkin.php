@@ -53,9 +53,9 @@ if(isset($_POST['stuID'])){
                 </form>
                 ';
                 echo "<td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
-                echo $row['money']?"已繳費":"<font-color=\"red\">未繳費</font>";
+                echo $row['money']?"已繳費":"<font color=\"red\">未繳費</font>";
                 echo "</td><td>";
-                echo $row['checkIn']?"已報到":"<font-color=\"red\">未報到</font>";
+                echo $row['checkIn']?"已報到":"<font color=\"red\">未報到</font>";
                 echo "</td><td>";
                 echo $row['pickUp']?"有中獎":"沒中獎";
                 echo "</td></tr>";
