@@ -7,7 +7,13 @@ require("header.php");
 	$TName = mysql_fetch_array($result);
 	
 	$result = mysql_query("SELECT * FROM `{$TName[0]}` ORDER BY `stuID`;");
+	$count = $countPay = $countCheck = 0;
 	while($row = mysql_fetch_array($result)){
+		$count ++;
+		if($row['money'])
+			$countPay++;
+		if($row['checkIn'])
+			$countCheck++;
 		echo "<tr align=\"center\"><td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
 		echo $row['money']?"已繳費":"<font-color=\"red\">未繳費</font>";
 		echo "</td><td>";
@@ -17,6 +23,6 @@ require("header.php");
 		echo "</td></tr>";
 	}
 	echo "</table>";
-
+	echo "共 {$count} 人報名、{$countPay} 人已繳費、{$countCheck} 人已報到。<br />\n";
 require("footer.php"); 
 ?>
