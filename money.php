@@ -41,6 +41,10 @@ if(isset($_POST['stuID'])){
 
         $result = mysql_query("SELECT * FROM `{$TName['TName']}` ORDER BY `stuID`;");
         while($row = mysql_fetch_array($result)){
+		if($row['charge']==0){
+			mysql_query("UPDATE `{$TName['TName']}` SET `money` = true;");
+			continue;
+		}
 		if($row['money'])
 			continue;
 		echo '<tr align="center"><td>';
@@ -52,9 +56,9 @@ if(isset($_POST['stuID'])){
 		</form>
 		';
                 echo "<td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
-                echo $row['money']?"已繳費":"<font-color=\"red\">未繳費</font>";
+                echo $row['money']?"已繳費":"<font color=\"red\">未繳費</font>";
                 echo "</td><td>";
-                echo $row['checkIn']?"已報到":"<font-color=\"red\">未報到</font>";
+                echo $row['checkIn']?"已報到":"<font color=\"red\">未報到</font>";
                 echo "</td><td>";
                 echo $row['pickUp']?"有中獎":"沒中獎";
                 echo "</td></tr>";
