@@ -44,6 +44,10 @@ if(isset($_POST['stuID'])){
         while($row = mysql_fetch_array($result)){
                 if($row['checkIn'])
                         continue;
+	        if($row['charge']==0){
+                        mysql_query("UPDATE `{$TName['TName']}` SET `money` = true WHERE `stuID` = {$row['stuID']};");
+			$row['money'] = true;
+		}
                 echo '<tr align="center"><td>';
                 echo'
                 <form method="post">
