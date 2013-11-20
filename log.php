@@ -21,11 +21,10 @@
         }
 
 
-	function LogBooki($page, $text){
+	function LogBook($page, $text){
 		$now = date("Y-m-d H:i:s", time());
 		$IP = GetIP();
 		mysql_query("INSERT INTO `log` (`logTime`, `page`, `message`, `IP`) VALUES('{$now}', '{$page}', '{$text}', '{$IP}');");
 	}
 	
-
 ?>
