@@ -1,0 +1,52 @@
+body{
+	font-family: 微軟正黑體;
+}
+
+.pick{
+	font-size: 60pt;
+	color: blue;
+	font-weight: 900;
+}
+
+html{
+	background-color: white;
+}
+
+input{
+	font-size: 36pt;
+	font-weight: 700;
+	font-family: 微軟正黑體;
+}
+
+table{
+	border:1px;
+ 	border-collapse:collapse; 
+}
+
+.pickup_input{
+	font-size: 36pt;
+	font-weight: 900;
+
+}
+
+.footer{
+	font-size: 12pt;
+	color: gray;
+}
+
+.create_label{
+	font-size: 24pt;
+	width: 230px;
+	display: inline-block;
+}
+
+.create_input{
+	font-size: 24pt;
+	width: 500px;
+	height: 40px;
+	color: gray;
+}
+
+.create{
+	font-size: 24pt;
+}

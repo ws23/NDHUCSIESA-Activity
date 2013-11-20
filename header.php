@@ -14,21 +14,6 @@
 <?php
 require_once("connect.php");
 require_once('log.php');
-if(isset($_POST['activity'])){
-	$ID = $_POST['activity'];
-	$result = mysql_query("SELECT * FROM `main` WHERE `AID` = '{$ID}';");
-	$row = mysql_fetch_array($result);
-	if($row['money']==false)
-	        mysql_query("UPDATE `{$row['TName']}` SET `money` = true WHERE 1;");
-
-?>
-
-	<form method="post" action="select.php">
-		<input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>">
-		<p align="center"><input style="border: 0px; background-color: transparent; font-size: 30pt; color: blue;" type="submit" value="<?php echo $row['AName']; ?>"></p>
-	</form>
-<?php
-}
 ?>
 <table width="1024" align="center">
 <tr><td>
