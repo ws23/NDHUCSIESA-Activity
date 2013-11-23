@@ -1,7 +1,7 @@
 <?php 
 require("header.php"); 
 if(isset($_GET['activity'])){
-$_POST['activitt'] = $_GET['activity'];
+$_POST['activity'] = $_GET['activity'];
 
 $result = mysql_query("SELECT `TName`, `charge`, `chargeMember`, `back`, `backMember` FROM `main` WHERE `AID` = {$_POST['activity']};");
 $TName = mysql_fetch_array($result);
