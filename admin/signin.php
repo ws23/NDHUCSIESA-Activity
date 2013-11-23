@@ -47,7 +47,7 @@ if(isset($_POST['activity'])){
 				mysql_query($command)
 					or die ("<br>Error: " . mysql_error() . "<br>Command: " . $command);
 				echo "<br>" . "Thank you, " . $stuName ;
-				LogBook("{$TName}: {$stuName} sign in");
+				LogBook("admin/signin.php", "{$_POST['avtivity']}: {$stuName} 報名。");
 			}
 			else{
 				echo "<br>Error: {$stuID} is not exist in database.</br>\n";
