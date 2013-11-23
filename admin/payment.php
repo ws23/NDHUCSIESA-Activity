@@ -36,10 +36,10 @@ echo "共 {$count} 人報名、{$countPay} 人已繳費、{$countCheck} 人已�
 echo "income = $income, incomeM = $incomeM, expenditure = $expenditure, expenditureM = $expenditureM, get = $get, getM = $getM <br />";
 ?>
 <table align="center" valign="middle" style="font-size: 24pt; ">
-<tr><th width="200px"></th><th width="150px">應收</th><th width="150px">實收</th><th width="150px">退費</th><th width="150px">應收小計</th><th>實收小計</th></tr>
-<tr align="center"><td>會員</td><td><?php echo $incomeM; ?></td><td><?php echo $getM; ?></td><td><?php echo $expenditureM; ?></td><td><?php echo $incomeM-$expenditureM; ?></td><td><?php echo $getM-$expenditureM; ?></td></tr>
-<tr align="center"><td>非會員</td><td><?php echo $income; ?></td><td><?php echo $get; ?></td><td><?php echo $expenditure; ?></td><td><?php echo $income-$expenditure; ?></td><td><?php echo $get-$expenditure; ?></td></tr>
-<tr align="center"><td colspan="6">-----------------------------------------------------------------------------------------------------</td></tr>
+<tr><th width="200px"></th><th width="150px">應收</th><th width="150px">實收</th><th width="150px">退費</th><th width="150px">應收小計</th></tr>
+<tr align="center"><td>會員</td><td><?php echo $incomeM; ?></td><td><?php echo $getM; ?></td><td><?php echo $expenditureM; ?></td><td><?php echo $incomeM-$expenditureM; ?></td></tr>
+<tr align="center"><td>非會員</td><td><?php echo $income; ?></td><td><?php echo $get; ?></td><td><?php echo $expenditure; ?></td><td><?php echo $income-$expenditure; ?></td></tr>
+<tr align="center"><td colspan="6">--------------------------------------------------------------------------------------</td></tr>
 <tr align="center"><td>總計</td><td><?php echo $incomeM+$income; ?></td><td><?php echo $get+$getM; ?></td><td><?php echo $expenditureM+$expenditure; ?></td><td><?php echo $incomeM+$income-$expenditureM-$expenditure; ?></td><td><?php echo $get+$getM-$expenditureM-$expenditure; ?></td></tr>
 </table>
 <?php
