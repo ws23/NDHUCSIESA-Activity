@@ -33,7 +33,6 @@ while($row = mysql_fetch_array($result)){
 		$countCheck++;
 }
 echo "共 {$count} 人報名、{$countPay} 人已繳費、{$countCheck} 人已報到。<br /><br /><br />\n";
-echo "income = $income, incomeM = $incomeM, expenditure = $expenditure, expenditureM = $expenditureM, get = $get, getM = $getM <br />";
 ?>
 <table align="center" valign="middle" style="font-size: 24pt; ">
 <tr><th width="200px"></th><th width="150px">應收</th><th width="150px">實收</th><th width="150px">退費</th><th width="150px">應收小計</th></tr>
