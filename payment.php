@@ -4,7 +4,7 @@ require("header.php");
 $result = mysql_query("SELECT `TName`, `charge`, `chargeMember`, `back`, `backMember` FROM `main` WHERE `AID` = {$_POST['activity']};");
 $TName = mysql_fetch_array($result);
 
-LogBook("admin/payment.php", "觀看 {$_POST['activity']} 收支狀況。");
+LogBook("payment.php", "觀看 {$_POST['activity']} 收支狀況。");
 $result = mysql_query("SELECT * FROM `{$TName['TName']}` ORDER BY `stuID`;");
 $count = $countPay = $countCheck = $income = $incomeM = $expenditure = $expenditureM = $getM = $get = $payfree = 0;
 while($row = mysql_fetch_array($result)){
