@@ -1,5 +1,7 @@
 <?php 
 require("header.php"); 
+if(isset($_GET['activity'])){
+$_POST['activitt'] = $_GET['activity'];
 
 $result = mysql_query("SELECT `TName`, `charge`, `chargeMember`, `back`, `backMember` FROM `main` WHERE `AID` = {$_POST['activity']};");
 $TName = mysql_fetch_array($result);
@@ -43,5 +45,6 @@ echo "共 {$count} 人報名、{$countPay} 人已繳費、{$payfree} 人免繳�
 <tr align="center"><td>總計</td><td><?php echo $incomeM+$income; ?></td><td><?php echo $get+$getM; ?></td><td><?php echo $expenditureM+$expenditure; ?></td><td><?php echo $incomeM+$income-$expenditureM-$expenditure; ?></td></tr>
 </table>
 <?php
+}
 require("footer.php"); 
 ?>
