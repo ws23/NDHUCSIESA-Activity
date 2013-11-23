@@ -11,14 +11,14 @@ $result = mysql_query("SELECT * FROM `{$TName[0]}` ORDER BY `stuID`;");
 $count = $countPay = $countCheck = 0;
 while($row = mysql_fetch_array($result)){
 	$count ++;
+        if($row['charge']==0){
+                mysql_query("UPDATE `{$TName['TName']}` SET `money` = true WHERE `stuID` = {$row['stuID']};");
+                $row['money'] = true;
+        }
 	if($row['money'])
 		$countPay++;
 	if($row['checkIn'])
 		$countCheck++;
-        if($row['charge']==0){
-              	mysql_query("UPDATE `{$TName['TName']}` SET `money` = true WHERE `stuID` = {$row['stuID']};");
-		$row['money'] = true;
-	}
 	echo "<tr align=\"center\"><td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
 	echo $row['money']?"已繳費":"<font color=\"red\">未繳費</font>";
 	echo "</td><td>";

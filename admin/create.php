@@ -20,6 +20,8 @@ function chargeOrNot(input){
 <div id = "charge">
 <label class="create_label">會員繳費金額 </label><input type="text" class="create_input" name="charge_Member"><br /><br/>
 <label class="create_label">非會員繳費金額 </label><input type="text" class="create_input" name="charge"><br /><br/>
+<label class="create_label">會員退費金額 </label><input type="text" value="0" class="create_input" name="back_Member"><br /><br />
+<label class="create_label">非會員退費金額 </label><input type="text" value="0" class="create_input" name="back"><br /><br />
 </div>
 <input class="create" type="submit" value="送出"></br>
 </form>
@@ -36,10 +38,12 @@ if(isset($_POST['AName'])){
 		$money = "false";
 	$charge = $_POST['charge'];
 	$chargeM = $_POST['charge_Member'];
+	$back = $_POST['back'];
+	$backM = $_POST['back_Member'];
 
 	// create the acitivity and store the data to database
 	$TName = "tmp";
-	$command = "INSERT INTO `main`(`AName`, `TName`, `Money`, `charge`, `chargeMember`) VALUES ('{$AName}','{$TName}',{$money}, '{$charge}', '{$chargeM}');";
+	$command = "INSERT INTO `main`(`AName`, `TName`, `Money`, `charge`, `chargeMember`, `back`, `backMember`) VALUES ('{$AName}','{$TName}',{$money}, '{$charge}', '{$chargeM}', '{$back}', '{$backM}');";
 	mysql_query($command) or die(mysql_error());
 	LogBook("admin/create.php", "創建活動{$AName}(DB:{$TName})");
 	$result = mysql_query("SELECT `AID` FROM `main` WHERE `AName` = '{$AName}';");
