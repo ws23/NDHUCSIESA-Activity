@@ -1,8 +1,8 @@
 <?php 
 	
 	$HOST = "127.0.0.1";
-	$ID = "root";
-	$PW = "yutsu1012";
+	$ID = "";
+	$PW = "";
 	$DB = "activity";
 	
 	mysql_connect($HOST, $ID, $PW)
