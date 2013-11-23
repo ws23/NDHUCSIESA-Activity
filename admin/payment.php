@@ -6,7 +6,7 @@ $TName = mysql_fetch_array($result);
 
 LogBook("admin/list.php", "觀看 {$_POST['activity']} 報名狀況。");
 $result = mysql_query("SELECT * FROM `{$TName['TName']}` ORDER BY `stuID`;");
-$count = $countPay = $countCheck = $income = $incomeM = $expenditure = $expenditureM = $getM = $get = 0;
+$count = $countPay = $countCheck = $income = $incomeM = $expenditure = $expenditureM = $getM = $get = $payfree = 0;
 while($row = mysql_fetch_array($result)){
 	$info = mysql_query("SELECT `isMember` FROM `stuinfo` WHERE `stuID` = '{$row['stuID']}';");
 	$isMember = mysql_fetch_array($info);
@@ -26,13 +26,14 @@ while($row = mysql_fetch_array($result)){
         if($row['charge']==0){
                 mysql_query("UPDATE `{$TName['TName']}` SET `money` = true WHERE `stuID` = {$row['stuID']};");
                 $row['money'] = true;
+		$payfree++;	
         }
-	if($row['money'])
+	else if($row['money'])
 		$countPay++;
 	if($row['checkIn'])
 		$countCheck++;
 }
-echo "共 {$count} 人報名、{$countPay} 人已繳費、{$countCheck} 人已報到。<br /><br /><br />\n";
+echo "共 {$count} 人報名、{$countPay} 人已繳費、{$payfree} 人免繳費、{$countCheck} 人已報到。<br /><br /><br />\n";
 ?>
 <table align="center" valign="middle" style="font-size: 24pt; ">
 <tr><th width="200px"></th><th width="150px">應收</th><th width="150px">實收</th><th width="150px">退費</th><th width="150px">應收小計</th></tr>

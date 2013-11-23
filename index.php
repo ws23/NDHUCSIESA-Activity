@@ -33,12 +33,14 @@ $TName = mysql_fetch_array($result);
 
 $result = mysql_query("SELECT * FROM `{$TName['TName']}` ORDER BY `stuID`;");
 LogBook("index.php", "List {$_POST['activity']}");
-$count = $countPay = $countCheck = 0;
+$count = $countPay = $countCheck = $payFree =  0;
 while($row = mysql_fetch_array($result)){
         $count ++;
         if($row['charge']==0){
                 mysql_query("UPDATE `{$TName['TName']}` SET `money` = true WHERE `stuID` = {$row['stuID']};");
                 $row['money'] = true;
+		$countPay--;
+		$payFree++;
         }
         if($row['money'])
                 $countPay++;
@@ -53,7 +55,7 @@ while($row = mysql_fetch_array($result)){
         echo "</td></tr>";
 }
 echo "</table>";
-echo "<br><br> 共 {$count} 人報名、{$countPay} 人已繳費、{$countCheck} 人已報到。<br />\n";
+echo "<br><br> 共 {$count} 人報名、{$countPay} 人已繳費、{$payFree} 人免繳費、{$countCheck} 人已報到。<br />\n";
 
 }
 require("footer.php"); 
