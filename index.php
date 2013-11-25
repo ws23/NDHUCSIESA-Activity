@@ -2,6 +2,8 @@
 require("header.php"); 
 ?>
 
+<p style="font-size: 24pt; color: blue; "><a href="index.php">報名狀況</a>&nbsp;&nbsp;&nbsp;<a href="payment.php">收支狀況</a> </p>
+
 <form method="post" name="listActivity">
 <p style="font-size: 36pt; color: black;">選擇活動：
 <select size="1" name="activity" style="font-size: 24pt; width: 300px; height: 50px; align: center;">
