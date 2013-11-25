@@ -1,7 +1,29 @@
 <?php 
 require("header.php"); 
-if(isset($_GET['activity'])){
-$_POST['activity'] = $_GET['activity'];
+
+?>
+<form method="post" name="listActivity">
+<p style="font-size: 36pt; color: black;">選擇活動：
+<select size="1" name="activity" style="font-size: 24pt; width: 300px; height: 50px; align: center;">
+i<?php
+$result = mysql_query("SELECT * from `main` WHERE 1;");
+while($row = mysql_fetch_array($result)){
+        echo '<option value="' . $row['AID'] . '"';
+        if(isset($_POST['activity'])){
+                if($_POST['activity'] == $row['AID'])
+                        echo ' selected ';
+        }
+        echo '>' . $row['AName'] . '</option>' . "\n";
+}
+?>
+</select>
+<input type="submit" value="送出" >
+</p>
+</form>
+
+
+<?
+if(isset($_POST['activity'])){
 
 $result = mysql_query("SELECT `TName`, `charge`, `chargeMember`, `back`, `backMember` FROM `main` WHERE `AID` = {$_POST['activity']};");
 $TName = mysql_fetch_array($result);
