@@ -30,6 +30,7 @@ while($row = mysql_fetch_array($result)){
 <form action="signin.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="活動報名"></form>
 <form action="list.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="報名狀況"></form>
 <form action="money.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="繳費註記"></form>
+<form action="getFood.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="便當領取" ></form>
 <form action="payment.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="收支狀況"></form>
 <form action="checkin.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="活動報到"></form>
 <form action="pickup.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="抽獎機"></form>

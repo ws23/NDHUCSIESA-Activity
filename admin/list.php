@@ -2,7 +2,7 @@
 require("header.php"); 
 
 echo '<table>';
-echo '<tr align="center" style="background-color: yellow;"><td width="200px">學號</td><td width="200px">姓名</td><td width="200px">應繳金額</td><td width="200px">繳費與否</td><td width="200px">報到與否</td><td width="200px">中獎與否</td>';
+echo '<tr align="center" style="background-color: yellow;"><td width="200px">學號</td><td width="200px">姓名</td><td width="200px">應繳金額</td><td width="200px">繳費與否</td><td width="200px">報到與否</td><td width="200px">領餐與否</td><td width="200px">中獎與否</td>';
 $result = mysql_query("SELECT `TName` FROM `main` WHERE `AID` = {$_POST['activity']};");
 $TName = mysql_fetch_array($result);
 
@@ -26,6 +26,8 @@ while($row = mysql_fetch_array($result)){
 	echo "</td><td>";
 	echo $row['checkIn']?"已報到":"<font color=\"red\">未報到</font>";
 	echo "</td><td>";
+	echo $row['eat']?"已取餐":"<font color=\"blue\">未取餐</font>";
+	echo '</td><td>';
 	echo $row['pickUp']?"有中獎":"沒中獎";
 	echo "</td></tr>";
 }
