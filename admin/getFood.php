@@ -24,7 +24,7 @@ if(isset($_POST['stuID'])){
 
         if($row2['stuID'] != $_POST['stuID'])
                 echo "<br>未報名。</br>";
-        else if($row2['money']==true)
+        else if($row2['eat']==true)
                 echo "<br>已取餐。</br>";
         else{
                 mysql_query("UPDATE `{$row['TName']}` SET `eat` = true WHERE `stuID` = '{$_POST['stuID']}';");
@@ -48,7 +48,7 @@ if(isset($_POST['stuID'])){
 		<form method="post">
 	        <input type="hidden" name="activity" value="' .  $_POST['activity'] . '">
 			<input type="hidden" name="stuID" value="' . $row['stuID'] . '">
-	        <input type="submit" value="繳費" style="font-size: 12pt; border: 400;" >			
+	        <input type="submit" value="取餐" style="font-size: 12pt; border: 400;" >			
 		</form>
 		';
                 echo "<td>{$row['stuID']}</td><td>{$row['stuName']}</td><td>{$row['charge']}</td><td>";
