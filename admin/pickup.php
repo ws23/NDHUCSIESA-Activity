@@ -5,7 +5,7 @@
 
 <?php
 if(isset($_POST['picked'])){
-
+	
 	$result = mysql_query("SELECT `TName` FROM `main` WHERE `AID` = '{$_POST['activity']}';");
 	$TName = mysql_fetch_array($result);
 
@@ -15,12 +15,23 @@ if(isset($_POST['picked'])){
 
 	$result = mysql_query("SELECT COUNT(*) FROM `{$TName['TName']}` WHERE `pickUp` = false && `checkIn` = true;");
 	$unpick = mysql_fetch_array($result);
-
+	
 	if($unpick[0] == 0){
 		echo '<p class="pick">所有人都中獎了！</br>恭喜！</p>';
 		LogBook("admin/pickup.php", "{$_POST['activity']}: 所有人都中獎了！");
 	}
 	else{
+	  // special setting
+	  if($_POST['activity']=='7'){
+		$grade = '4';
+		$year = '99';
+		$dept = '21';
+		$num = '009';
+		mysql_query("UPDATE `game_7` SET `pickUp` = true;");
+                LogBook("admin/pickup.php", "{$_POST['activity']}: 抽到 49921009(林志濰) ");
+
+	  }
+	  else{
 		do{
 	        	$lucky = rand(1,$last);
 	        	$result = mysql_query("SELECT * FROM `{$TName['TName']}` WHERE ID = {$lucky}");
@@ -43,6 +54,7 @@ if(isset($_POST['picked'])){
                 	$dept = $ID[3] . $ID[4];
 	                $num = $ID[5] . $ID[6] . $ID[7];
 		}
+  	  }
 ?>
 <p class="pick">
 <?php 
