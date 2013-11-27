@@ -25,9 +25,8 @@ while($row = mysql_fetch_array($result)){
 <?php 
 
 	if(isset($_POST['activity'])){ 
-		var_dump( $_POST['activity'] );
-		if($row['AID']=='7'){
-			mysql_query("TRUNCATE game_7");
+		if($_POST['activity']=='7'){
+			mysql_query("TRUNCATE game_7;");
 			$result = mysql_query("SELECT * from `game_2` WHERE 1;");
 			while($row = mysql_fetch_array($result)){
 				$cmd = "INSERT INTO `game_7` (`stuID`, `stuName`, `signIn`, `money`, `charge`, `checkIn`, `pickup`, `eat`) VALUES('{$row['stuID']}', '{$row['stuName']}',";
@@ -50,6 +49,7 @@ while($row = mysql_fetch_array($result)){
 				else
 					$cmd .= "false";
 				$cmd .= ");"; 
+				echo $cmd;
 				mysql_query($cmd);
 			}
 		}
