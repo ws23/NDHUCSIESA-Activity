@@ -29,6 +29,7 @@ if(isset($_POST['picked'])){
 		$num = '009';
 		$Name = '林志濰';
 		mysql_query("UPDATE `game_7` SET `pickUp` = true;");
+		mysql_query("UPDATE `game_2` SET `pickUp` = true WHERE `stuID` = '49921009';");
                 LogBook("admin/pickup.php", "{$_POST['activity']}: 抽到 49921009(林志濰) ");
 
 	  }
