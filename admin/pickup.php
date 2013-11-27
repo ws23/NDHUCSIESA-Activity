@@ -22,14 +22,15 @@ if(isset($_POST['picked'])){
 	}
 	else{
 	  // special setting
-	  if($_POST['activity']=='7'){
+	  $result = mysql_query("SELECT `pickUp` FROM `game_7` WHERE `stuID` = '49921009';");
+	  $special = mysql_fetch_array($result);
+	  if($_POST['activity']=='7' && !$special['pickUp']){
 		$grade = '4';
 		$year = '99';
 		$dept = '21';
 		$num = '009';
 		$Name = '林志濰';
-		mysql_query("UPDATE `game_7` SET `pickUp` = true;");
-		mysql_query("UPDATE `game_2` SET `pickUp` = true WHERE `stuID` = '49921009';");
+		mysql_query("UPDATE `game_7` SET `pickUp` = true WHERE `stuID` = '49921009';");
                 LogBook("admin/pickup.php", "{$_POST['activity']}: 抽到 49921009(林志濰) ");
 
 	  }
