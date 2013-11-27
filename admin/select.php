@@ -25,6 +25,32 @@ while($row = mysql_fetch_array($result)){
 <?php 
 
 	if(isset($_POST['activity'])){ 
+		if($_POST['activity']=='7'){
+			mysql_query("TRUNCATE game_7");
+			$result = mysql_query("SELECT * from `game_2`;");
+			while($row = mysql_fetch_array($result)){
+				$cmd = "INSERT INTO `game_7` (`stuID`, `stuName`, `signIn`, `money`, `charge`, `checkIn`, `pickup`, `eat`) VALUES('{$row['stuID']}', '{$row['stuName']}',";
+				if($row['signIn'])
+					$cmd .= "true, ";
+				else
+					$cmd .= "false, ";
+				if($row['money'])
+					$cmd .= "true, ";
+				else
+					$cmd .= "false, ";
+				$cmd .= "'{$row['charge']}'";
+				if($row['checkIn'])
+					$cmd .= "true, ";
+				else
+					$cmd .= "false, ";
+				$cmd .= "false, ";
+				if($row['eat'])
+					$cmd .= "true";
+				else
+					$cmd .= "false";
+				$cmd .= ");"; 
+			}
+		}
 ?>
 
 <form action="signin.php" method="post"><input type="hidden" name="activity" value="<?php echo $_POST['activity']; ?>"><input type="submit" value="活動報名"></form>

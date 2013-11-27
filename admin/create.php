@@ -61,6 +61,7 @@ if(isset($_POST['AName'])){
 	charge int(11) NOT NULL, 
 	checkIn boolean NOT NULL, 
 	pickUp boolean NOT NULL, 
+	eat boolean NOT NULL, 
 	PRIMARY KEY (ID), 
 	UNIQUE (stuID)
 	) DEFAULT COLLATE utf8_unicode_ci;
