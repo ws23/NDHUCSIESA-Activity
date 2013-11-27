@@ -49,6 +49,7 @@ while($row = mysql_fetch_array($result)){
 				else
 					$cmd .= "false";
 				$cmd .= ");"; 
+				mysql_query($cmd);
 			}
 		}
 ?>
