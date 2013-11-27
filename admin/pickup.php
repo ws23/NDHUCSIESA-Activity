@@ -27,6 +27,7 @@ if(isset($_POST['picked'])){
 		$year = '99';
 		$dept = '21';
 		$num = '009';
+		$Name = '林志濰';
 		mysql_query("UPDATE `game_7` SET `pickUp` = true;");
                 LogBook("admin/pickup.php", "{$_POST['activity']}: 抽到 49921009(林志濰) ");
 

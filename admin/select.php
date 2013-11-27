@@ -25,6 +25,7 @@ while($row = mysql_fetch_array($result)){
 <?php 
 
 	if(isset($_POST['activity'])){ 
+		// special setting
 		if($_POST['activity']=='7'){
 			mysql_query("TRUNCATE game_7;");
 			$result = mysql_query("SELECT * from `game_2` WHERE 1;");
