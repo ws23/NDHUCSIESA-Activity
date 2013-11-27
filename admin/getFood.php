@@ -27,8 +27,8 @@ if(isset($_POST['stuID'])){
         else if($row2['money']==true)
                 echo "<br>已取餐。</br>";
         else{
-                mysql_query("UPDATE `{$row['TName']}` SET `money` = true WHERE `stuID` = '{$_POST['stuID']}';");
-		LogBook("admin/getFood.php", "{$_POST['activity']}: {$_POST['stuID']} pay the money.");
+                mysql_query("UPDATE `{$row['TName']}` SET `eat` = true WHERE `stuID` = '{$_POST['stuID']}';");
+		LogBook("admin/getFood.php", "{$_POST['activity']}: {$_POST['stuID']} get the food.");
 		echo "<br>" . $row2['stuName'] . "取餐成功。</br>";
 	}
 }
