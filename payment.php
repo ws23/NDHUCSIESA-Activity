@@ -36,7 +36,9 @@ $count = $countPay = $countCheck = $income = $incomeM = $expenditure = $expendit
 while($row = mysql_fetch_array($result)){
 	$info = mysql_query("SELECT `isMember` FROM `stuinfo` WHERE `stuID` = '{$row['stuID']}';");
 	$isMember = mysql_fetch_array($info);
-	if($isMember['isMember']==1){
+	if($row['charge']==0)
+		;
+	else if($isMember['isMember']==1){
 		$incomeM += $TName['chargeMember'];
 		$expenditureM += $TName['backMember'];
 		if($row['money'])
